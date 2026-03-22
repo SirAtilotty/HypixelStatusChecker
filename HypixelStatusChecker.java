@@ -1,16 +1,24 @@
-import java.net.http.HttpClient;    //SADEKX TARAFINDAN BAŞLATILIP SİR_ATİLOTTY NİN KATKILARIYLA GELİŞTİRİLMİŞTİR
+import java.net.http.HttpClient;   //PROJE SADEKX TARAFINDAN BAŞLATILIP SİR_ATİLOTTY TARAFINDAN GELİŞTİRİLMİŞTİR
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.URI;
+import java.util.prefs.Preferences;
 import javax.swing.*;
 import java.awt.*;
 
 public class HypixelStatusChecker {
     public static void main(String[] args) throws Exception {
+        Preferences prefs = Preferences.userNodeForPackage(HypixelStatusChecker.class);
+        String apiKey = prefs.get("apiKey", null);
+
+        if (apiKey == null || apiKey.isEmpty()) {
+            apiKey = JOptionPane.showInputDialog(null, "Enter Your API Key:", "API Key", JOptionPane.PLAIN_MESSAGE);
+            if (apiKey == null || apiKey.isEmpty()) return;
+            prefs.put("apiKey", apiKey);
+        }
+
         String pname = JOptionPane.showInputDialog("Enter player name:");
         if (pname == null || pname.isEmpty()) return;
-
-        String apiKey = "your ip key here";
 
         HttpClient client = HttpClient.newHttpClient();
 
@@ -36,8 +44,10 @@ public class HypixelStatusChecker {
                 .build();
         HttpResponse<String> response2 = client.send(request2, HttpResponse.BodyHandlers.ofString());
 
+
         if (!response2.body().contains("\"success\":true")) {
-            JOptionPane.showMessageDialog(null, "Hypixel API Error!", "Error", JOptionPane.ERROR_MESSAGE);
+            prefs.remove("apiKey");
+            JOptionPane.showMessageDialog(null, "Invalid API Key Please Try Again", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
@@ -50,7 +60,7 @@ public class HypixelStatusChecker {
         HttpResponse<byte[]> avatarResponse = client.send(avatarRequest, HttpResponse.BodyHandlers.ofByteArray());
         ImageIcon avatarIcon = new ImageIcon(avatarResponse.body());
 
-
+        // 4. Panel oluştur
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
