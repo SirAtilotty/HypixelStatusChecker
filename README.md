@@ -66,7 +66,7 @@ Run your compiled `HypixelStatusChecker.exe` tool on your computer. When the min
 
 ### Release Difrences
 
-v2.0.0 - Cloud Secure Edition (Current)
+v1.1.0 - Cloud Secure Edition (Current)
 Architecture: Implemented Cloudflare Serverless Proxy.
 
 Security: API keys are no longer stored on the client side. They are managed securely in an encrypted environment variable on the server.
