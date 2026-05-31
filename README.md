@@ -64,32 +64,22 @@ Click the login option. You will be redirected to authenticate securely via your
 ### Step 5: Final Synchronization
 Run your compiled `HypixelStatusChecker.exe` tool on your computer. When the minimalist input box prompts you with **"Enter Your API Key:"**, paste your copied token and hit OK. The tool will permanently cache it, grant you master access to the network APIs, and never bother you for configuration again!
 
+### Release Difrences
 
+v2.0.0 - Cloud Secure Edition (Current)
+Architecture: Implemented Cloudflare Serverless Proxy.
 
+Security: API keys are no longer stored on the client side. They are managed securely in an encrypted environment variable on the server.
 
+User Experience: Zero-config setup. Users no longer need to input API keys; the system handles all backend authentication automatically.
 
+Compliance: Fully optimized for Hypixel API Terms of Use, ensuring high availability and zero exposure of sensitive data.
 
+v1.0.0 - Local Persistence Legacy
+Architecture: Classic client-side request structure.
 
+Security: Relied on java.util.prefs.Preferences to store API keys locally on the user's machine.
 
+Workflow: Required a one-time manual setup where the user provided their Hypixel Developer API key during the first launch.
 
-
-
-
-
-
-
-Release Title: v2.0.0 - Cloud Secure Edition
-Release Description:
-This version represents a major milestone in the project's architecture, introducing a robust Serverless Proxy system to enhance security, privacy, and performance.
-
-🚀 What's New?
-Enhanced Security: The outdated method of storing API keys locally on your machine has been completely removed. Your API key is now managed securely behind a Cloudflare Serverless Proxy.
-
-Zero Exposure: You no longer need to embed or manage API keys within the client. Your sensitive information is protected in an encrypted, server-side environment.
-
-Improved Performance: Integrated edge caching reduces latency and optimizes API request efficiency, ensuring a smoother user experience.
-
-API Policy Compliance: This architecture is fully aligned with the Hypixel API Terms of Use, making the application safer and more reliable.
-
-🛠️ Migration Note
-This update eliminates the need for manual API key configuration. Upon running this version, you will no longer be prompted to enter your API key—everything is handled automatically through our secure gateway.
+Status: Deprecated. This version is no longer recommended due to security and scalability limitations.
