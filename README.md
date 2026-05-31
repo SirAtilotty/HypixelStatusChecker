@@ -1,6 +1,6 @@
 # 🎮 Hypixel Status Checker
 
-![Java](https://img.shields.io/badge/Java-24-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Java](https://img.shields.io/badge/Java-24-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 ![Platform](https://img.shields.io/badge/Platform-Windows-0078D4?style=for-the-badge&logo=windows&logoColor=white)
 ![License](https://img.shields.io/badge/License-GPL_3.0-blue?style=for-the-badge)
 
@@ -11,35 +11,14 @@
 
 ---
 
-## 📖 Overview
+## 📖 What Does This Application Do?
 
-**Hypixel Status Checker** is a high-performance, lightweight Windows utility written in Java. It directly interfaces with official Mojang and Hypixel REST APIs to provide real-time tracking of any Minecraft player's network status, server-wide donor rank, and current mini-game telemetry.
+**Hypixel Status Checker** is a fast, standalone Windows desktop utility designed to instantly track and display the real-time presence of any Minecraft player on the Hypixel Network. 
 
-The application deploys a clean, minimalist **Java Swing Graphical User Interface (GUI)** designed to extract and display raw JSON payloads with zero external dependency bloating.
+Instead of dealing with complex terminal commands or browser-based stat trackers, users simply launch the application and enter a player's username. Behind the scenes, the tool communicates directly with official Mojang and Hypixel APIs to deliver a clean, graphical summary card containing:
 
----
+* **Live Status & Activity:** Instantly reveals if the targeted player is currently `Online` or `Offline`. If they are online, the application dives deeper to show the exact mini-game they are currently playing (such as *BedWars*, *SkyBlock*, or *Murder Mystery*).
+* **Rank & Visuals:** Scans the Hypixel database to determine the player's exact donor rank (`MVP++`, `MVP+`, `VIP`, etc.), rendering it in its native official color. It also downloads and displays the player's real-time 128x128 Minecraft head avatar.
+* **Smart API Caching:** To ensure a seamless user experience, the application asks for your Hypixel API Key only once during the first launch. It securely caches this key directly into your operating system's native preferences. On all future launches, you bypass the setup completely and jump straight to checking player statuses.
 
-## 🛠️ Core Features
-
-* **Real-Time Telemetry:** Instantly identifies if a targeted player is `Online` or `Offline`.
-* **Live Activity Tracking:** Automatically extracts and renders the exact mini-game the player is currently inside (e.g., *SkyBlock*, *BedWars*).
-* **Rank Matrix Recognition:** Scans Hypixel backend structures to identify donor status (`MVP++`, `MVP+`, `MVP`, `VIP+`, `VIP`) and dynamically tints labels using official network color palettes.
-* **Secure Token Caching:** Implements the native Java `Preferences` API to securely lock down your Hypixel Developer API Key into the OS workspace, bypassing login credentials on subsequent boots.
-* **Suppressed UI Overhead:** Leverages custom `JOptionPane.PLAIN_MESSAGE` architectures to completely eliminate generic OS warning elements, delivering a refined look.
-
----
-
-## ⚙️ Compilation & Deployment
-
-The production pipeline converts the internal Java target archive (`.jar`) directly into a native Windows executable shell (`.exe`).
-
-### 1. Artifact Export via IntelliJ IDEA
-* Navigate to `File -> Project Structure -> Artifacts`.
-* Add `+ -> JAR -> From modules with dependencies` and assign `HypixelStatusChecker` as the Main Class.
-* Select `extract into the target JAR` to embed all pipeline layers seamlessly.
-* Execute `Build -> Build Artifacts -> Build`.
-
-### 2. Binary Wrapping via Launch4j
-* **Basic Target:** Point the compiler directly to your new `.jar` file, bind your custom `.ico` emblem asset, and establish your target output as a `.exe` filename structure.
-* **JRE Array:** Set the `Min JRE Version` strict enforcement boundaries to `17` or `24` to match your local OpenJDK build space.
-* Execute the internal `Build` option to output the standalone Windows tool.
+Designed with a sleek, minimalist Java Swing interface, this application suppresses default Windows warning dialogs to provide a custom, distraction-free visual aesthetic for the end-user.
