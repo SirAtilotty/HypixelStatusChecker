@@ -63,3 +63,33 @@ Click the login option. You will be redirected to authenticate securely via your
 
 ### Step 5: Final Synchronization
 Run your compiled `HypixelStatusChecker.exe` tool on your computer. When the minimalist input box prompts you with **"Enter Your API Key:"**, paste your copied token and hit OK. The tool will permanently cache it, grant you master access to the network APIs, and never bother you for configuration again!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Release Title: v2.0.0 - Cloud Secure Edition
+Release Description:
+This version represents a major milestone in the project's architecture, introducing a robust Serverless Proxy system to enhance security, privacy, and performance.
+
+🚀 What's New?
+Enhanced Security: The outdated method of storing API keys locally on your machine has been completely removed. Your API key is now managed securely behind a Cloudflare Serverless Proxy.
+
+Zero Exposure: You no longer need to embed or manage API keys within the client. Your sensitive information is protected in an encrypted, server-side environment.
+
+Improved Performance: Integrated edge caching reduces latency and optimizes API request efficiency, ensuring a smoother user experience.
+
+API Policy Compliance: This architecture is fully aligned with the Hypixel API Terms of Use, making the application safer and more reliable.
+
+🛠️ Migration Note
+This update eliminates the need for manual API key configuration. Upon running this version, you will no longer be prompted to enter your API key—everything is handled automatically through our secure gateway.
