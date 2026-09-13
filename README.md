@@ -82,3 +82,5 @@ Security: Relied on java.util.prefs.Preferences to store API keys locally on the
 Workflow: Required a one-time manual setup where the user provided their Hypixel Developer API key during the first launch.
 
 Status: Deprecated. This version is no longer recommended due to security and scalability limitations.
+
+**Linux Update RELEASED!**
