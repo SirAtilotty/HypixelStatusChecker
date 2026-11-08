@@ -8,8 +8,8 @@
 
 ---
 
-> ### 👑 Project Heritage & Evolution
-> This software pipeline was originally conceptualized and initiated by **Sadekx**. It has been significantly refactored, optimized, and systematically enhanced under the sole engineering supervision and architectural redesign of **SirAtilotty** (`@SirAtilotty`).
+> ###  Project Heritage & Evolution
+> This software pipeline was originally conceptualized and initiated by **Sadekx**. It has been refactored and optimized, by **SirAtilotty** (`@SirAtilotty`).
 
 ---
 
