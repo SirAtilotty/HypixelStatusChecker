@@ -5,13 +5,9 @@ import java.net.URI;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Project initiated by Sadekx, engineered and hardened by Sir_Atilotty.
- * Refactored for Cloudflare Serverless Architecture.
- */
+//Developed by Sadekx && SirAtilotty
 public class HypixelProxy {
 
-    // Your dedicated Cloudflare Worker endpoint
     private static final String PROXY_BASE_URL = "https://hypixel-status-proxy.aizen-kyoka-suigetsu-pi.workers.dev";
 
     public static void main(String[] args) throws Exception {
@@ -20,7 +16,7 @@ public class HypixelProxy {
 
         HttpClient client = HttpClient.newHttpClient();
 
-        // 1. Fetch Minecraft UUID from Mojang API
+        /
         String mojangUrl = "https://api.mojang.com/users/profiles/minecraft/" + pname;
         HttpRequest mojangRequest = HttpRequest.newBuilder()
                 .uri(URI.create(mojangUrl))
@@ -35,7 +31,7 @@ public class HypixelProxy {
         String body = mojangResponse.body().replace(" ", "");
         String uuid = body.split("\"id\":\"")[1].split("\"")[0];
 
-        // 2. Fetch Player Status via Cloudflare Proxy Secure Gateway
+        
         String statusUrl = PROXY_BASE_URL + "/status?uuid=" + uuid;
         HttpRequest statusRequest = HttpRequest.newBuilder()
                 .uri(URI.create(statusUrl))
@@ -47,35 +43,35 @@ public class HypixelProxy {
             return;
         }
 
-        // 3. Fetch Player Metadata (Rank) via Cloudflare Proxy Secure Gateway
+       
         String playerUrl = PROXY_BASE_URL + "/player?uuid=" + uuid;
         HttpRequest playerRequest = HttpRequest.newBuilder()
                 .uri(URI.create(playerUrl))
                 .build();
         HttpResponse<String> playerResponse = client.send(playerRequest, HttpResponse.BodyHandlers.ofString());
 
-        // 4. Evaluate Player Rank and Theme Color Mapping
+      
         String rank = "No Rank";
         Color rankColor = Color.GRAY;
 
         if (playerResponse.body().contains("\"monthlyPackageRank\":\"SUPERSTAR\"")) {
             rank = "MVP++";
-            rankColor = new Color(255, 170, 0); // Gold
+            rankColor = new Color(255, 170, 0); 
         } else if (playerResponse.body().contains("\"newPackageRank\":\"MVP_PLUS\"")) {
             rank = "MVP+";
-            rankColor = new Color(0, 200, 255); // Light Blue
+            rankColor = new Color(0, 200, 255); 
         } else if (playerResponse.body().contains("\"newPackageRank\":\"MVP\"")) {
             rank = "MVP";
             rankColor = new Color(0, 200, 255);
         } else if (playerResponse.body().contains("\"newPackageRank\":\"VIP_PLUS\"")) {
             rank = "VIP+";
-            rankColor = new Color(0, 200, 0); // Green
+            rankColor = new Color(0, 200, 0); 
         } else if (playerResponse.body().contains("\"newPackageRank\":\"VIP\"")) {
             rank = "VIP";
             rankColor = new Color(0, 200, 0);
         }
 
-        // 5. Download Player Avatar Render Assets
+        
         String avatarUrl = "https://mc-heads.net/avatar/" + uuid + "/128";
         HttpRequest avatarRequest = HttpRequest.newBuilder()
                 .uri(URI.create(avatarUrl))
@@ -84,7 +80,7 @@ public class HypixelProxy {
         HttpResponse<byte[]> avatarResponse = client.send(avatarRequest, HttpResponse.BodyHandlers.ofByteArray());
         ImageIcon avatarIcon = new ImageIcon(avatarResponse.body());
 
-        // 6. Build Graphical User Interface Panel
+        
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
@@ -114,7 +110,7 @@ public class HypixelProxy {
         panel.add(Box.createVerticalStrut(5));
         panel.add(statusLabel);
 
-        // 7. Inject Session Telemetry States dynamically into the View Matrix
+        
         if (statusResponse.body().contains("\"online\":true")) {
             statusLabel.setText("Online");
             statusLabel.setForeground(new Color(0, 180, 0));
