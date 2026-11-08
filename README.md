@@ -9,7 +9,7 @@
 ---
 
 > ###  Project Heritage & Evolution
-> This software pipeline was originally conceptualized and initiated by **Sadekx**. It has been refactored and optimized, by **SirAtilotty** (`@SirAtilotty`).
+> This software pipeline was originally conceptualized and initiated by **Sadekx** (`@mcserhat144-pixel`). It has been refactored and optimized, by **SirAtilotty** (`@SirAtilotty`).
 
 ---
 
