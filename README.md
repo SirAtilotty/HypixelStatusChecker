@@ -1,7 +1,6 @@
 # Hypixel Status Checker
 
 [![Java](https://img.shields.io/badge/Java-11%2B-ED8B00?logo=openjdk&logoColor=white)](#requirements)
-[![Windows](https://custom-icon-badges.demolab.com/badge/Windows-0078D6?logo=windows11&logoColor=white)](https://github.com/SirAtilotty/HypixelStatusChecker/releases/tag/v1.1.0)
 [![Linux](https://img.shields.io/badge/Linux-AppImage-FCC624?logo=linux&logoColor=black)](https://github.com/SirAtilotty/HypixelStatusChecker/releases/tag/v1.1.0-L)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 
